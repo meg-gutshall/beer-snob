@@ -6,17 +6,29 @@ require 'pry'
 def scrape
   beer_info = []
   commercial_example = {}
-  a_to_z = {}
+  
 
   site = Nokogiri::HTML(open("https://www.craftbeer.com/beer/beer-styles-guide"))
   
   site.css("#content .style").each do |beer_site|
+    a_to_z = beer_site.css(".simple li .value")
     each_beer = {
       :style_family => beer_site.css(".family-name").text,
       :style_name => beer_site.css(".style-name").text,
       :style_description => beer_site.css("p")[1].text,
       :commercial_example => [],
-      :a_to_z => []
+      :alcohol => beer_site.css(".simple li")[11].text,
+      :clarity => a_to_z[12].text,
+      :color => a_to_z[13].text,
+      :country => a_to_z[14].text,
+      :cheese => a_to_z[15].text,
+      :entree => a_to_z[16].text,
+      :dessert => a_to_z[17].text,
+      :glass => a_to_z[18].text,
+      :hop_flavor => a_to_z[19].text,
+      :hop_ingredient => a_to_z[20].text,
+      :malt_flavor => a_to_z[21].text,
+      :malt_ingredient => a_to_z[22].text
     }
 
     # iterate through commercial examples
@@ -28,33 +40,13 @@ def scrape
       each_beer[:commercial_example] << commercial_example
     end
 
-    # iterate through food pairings
-    beer_site.css(".simple li").each do |trait|
-      a_to_z = {
-        :alcohol => trait.css(".value").text,
-        :carbonation => trait.css(".value").text,
-        :clarity => trait.css(".value").text,
-        :process => trait.css(".value").text,
-        :color => trait.css(".value").text,
-        :origin => trait.css(".value").text,
-        :cheese => trait.css(".value").text,
-        :entree => trait.css(".value").text,
-        :dessert => trait.css(".value").text
-      }
-      each_beer[:a_to_z] << a_to_z
-    end
-
-    # array = beer_site.css(".simple li")
-    # :alcohol => array[0]
-    # :carbonation => array[1]...
-
 
   beer_info << each_beer
   end
 
   
   binding.pry
-  site.css("#content .style").css(".winners .value").first.text
+
 
 end
 
