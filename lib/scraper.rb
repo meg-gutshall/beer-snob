@@ -6,7 +6,6 @@ require 'pry'
 def scrape
   beer_info = []
   commercial_example = {}
-  
 
   site = Nokogiri::HTML(open("https://www.craftbeer.com/beer/beer-styles-guide"))
   
@@ -40,16 +39,30 @@ def scrape
       each_beer[:commercial_example] << commercial_example
     end
 
-
   beer_info << each_beer
   end
 
-  
   binding.pry
+
+  # scrape A-to-Z guide info
+  a_to_z_guide = {
+    :alcohol => site.css("#content .entry-content ul")[6].text,
+    :carbonation => site.css("#content .entry-content ul")[8].text,
+    :clarity => site.css("#content .entry-content ul")[9].text,
+    :color => site.css("#content .entry-content ul")[10].text,
+    :country => site.css("#content .entry-content ul")[11].text,
+    :glass => site.css("#content .entry-content ul")[13].text,
+    :hop_ingredient => site.css("#content .entry-content ul")[14].text,
+    :malt_ingredient => site.css("#content .entry-content ul")[15].text
+  }
+  # TODO: iterate over element
+  
+
+  
+  
 
 
 end
 
 scrape
 
-# Let's test some commits!!
