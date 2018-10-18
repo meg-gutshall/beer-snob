@@ -25,7 +25,7 @@ good commit messages (which is a habit I want to form early) and then
 installing rvm to manage my rubies and gems, I was ready to really dive 
 in and begin coding.
 
-### Setup
+### Setup - Creating a Gem with Bundler
 
 I installed and used bundler to set up my gem, taking the following steps: 
 1. Open your terminal and `cd` into the folder in which you want to create 
@@ -36,42 +36,58 @@ a hyphen to make your gem name camel case.) Decide whether you want to use
 license for open sourcing regulationg, and a code of conduct for any open 
 source contributors to follow. Bundler then initializes a git repo for 
 your gem!
-3. `cd` into your newly created gem folder and navigate to GitHub. Create 
+
+### Setup - Connecting Your Gem to GitHub
+
+1. `cd` into your newly created gem folder and navigate to GitHub. Create 
 a new repository with the same name as your gem. Type `git add .` into 
 your terminal, then enter the last three lines in the "create a new 
 repository on the command line" option displayed on the new page loaded 
 in GitHub for your gem repository.
-4. Refresh your GitHub page and you'll see your gem and its files now in 
+2. Refresh your GitHub page and you'll see your gem and its files now in 
 your GitHub repository.
-5. To make sure you're working out of the correct repo, click on the green 
+3. To make sure you're working out of the correct repo, click on the green 
 "Clone of download" button in your gem's repository. Make sure that "Clone 
 with SSH" is selected and not "Clone with HTTPS". Click on the clipboard 
 image to copy the link and return to your terminal. Make sure you're in 
 the `code` folder, then type `git clone` and paste the link to clone the 
 correct repo for your gem project.
-6. Your new gem's repo folder should appear in your locael `code` folder. 
+4. Your new gem's repo folder should appear in your local `code` folder. 
 Open your text editor of choice and `cd` into the gem folder to start 
 working.
-7. To test your text editor's connectivity to GitHub, make a change to 
-your `README.md` file and save. In the terminal, type `git add .`, 
-`git commit -m "Modify README.md"`, and `git push`. When you refresh 
-your GitHub page, you should see the updated commit message and two 
-commits.
+  _Hint:_ To test your text editor's connectivity to GitHub, make a change 
+  to your `README.md` file and save. In the terminal, type `git add .`, 
+  `git commit -m "Modify README.md"`, and `git push`. When you refresh 
+  your GitHub page, you should see the updated commit message and two 
+  commits.
+
+### Setup - The Executable File
+
+1. Add your executable file (the file that makes the app run) in the `bin` 
+folder. I named mine `beer-snob`. (Remember to add `#!/usr/bin/env ruby` 
+as the first line so your computer knows the file is written in ruby.)
+2. 
 
 ## Scraping
 
 I decided to start my project by creating a `scraper.rb` file. I actually 
 began the file in a practice repo to just mess around and see what I could 
 come up with, but when it started coming together, I pasted my work into a 
-file in my gem repo. For each beer I wanted to store the style name, family 
-name, and a brief description of its characteristics. Since some beers 
-have a longer description than others, I decided just to store the first 
-paragraph of each beer description. Next I wanted to store the listed 
-examples of brewery and beer name for each style. This was a little tricky 
-because it required me to create a nested array composed of hashes. Then, 
-I wanted to stored some of the info from the "Style A-Z" section but not 
-all of it. I ran into issues here because the `<li>` tags used had the 
-same class name as the "Quanitative Style Statistics" section. I 
+file in my gem repo.
+
+For each beer I wanted to store the style name, family name, and a brief 
+description of its characteristics. Since some beers have a longer 
+description than others, I decided just to store the first paragraph of 
+each beer description. Next I wanted to store the listed examples of 
+brewery and beer name for each style. This was a little tricky because I 
+kept getting back the list of breweries followed by the list of beer names 
+instead of them being paired together. In the end, it required me to 
+create a nested array composed of hashes to be able to keep the beer name 
+and brewery as a pair.
+ 
+Then, I wanted to stored some of the info from the "Style A-Z" section 
+but not all of it. I ran into issues here because the `<li>` tags used 
+had the same class name as the "Quanitative Style Statistics" section. I 
 decided to index the `<li>` tags and pull each value directly from the 
 corresponding line. All information for each beer is being stored as a 
 nested hash in an array called `beer_info`.
