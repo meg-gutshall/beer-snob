@@ -1,4 +1,5 @@
 # CLI Controller
+require 'pry'
 
 class BeerSnob::CLI
 
