@@ -66,7 +66,11 @@ working.
 1. Add your executable file (the file that makes the app run) in the `bin` 
 folder. I named mine `beer-snob`. (Remember to add `#!/usr/bin/env ruby` 
 as the first line so your computer knows the file is written in ruby.)
-2. 
+2. We want the user to be able to run the app right out of the terminal 
+using bash instead of explicitly calling on a ruby interpreter to run it. 
+This means we have to change the executable files's permissions. We can 
+do this by cding into the `bin` folder and entering `chmod +x` followed 
+by your executable file's name.
 
 ## Scraping
 
