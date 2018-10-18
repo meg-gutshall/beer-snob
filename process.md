@@ -77,7 +77,17 @@ by your executable file's name.
 Encapsulate the app's logic in other files and then call it in the 
 executable file.
 
-The first step is to welcome the user.
+### BeerSnob Executable File
+
+The app's executable file only needed one line of code that starts the 
+program. However, it also needs to be made aware that there are other 
+files in the app to call methods from or else the program won't start.
+
+### CLI File
+
+The first step is to welcome the user. I created the `#call` method to do 
+this.
+...other CLI methods...
 
 ## Scraping
 
