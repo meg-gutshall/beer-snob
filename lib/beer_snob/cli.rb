@@ -16,25 +16,7 @@ class BeerSnob::CLI
   end
 
   def list_style_families
-    puts "\n"
-    puts <<-DOC
-      Beer Style Families
-      1. "Pale Ales"
-      2. "Dark Lagers"
-      3. "Brown Ales"
-      4. "India Pale Ales"
-      5. "Wheat Beers"
-      6. "Strong Ales"
-      7. "Belgian Styles"
-      8. "Hybrid Beers"
-      9. "Porters"
-      10. "Stouts"
-      11. "Bocks"
-      12. "Scottish-Style Ales"
-      13. "Wild/Sour Beers"
-      14. "Piseners and Pale Lagers"
-      15. "Specialty Beers"
-    DOC
+    @style_families = BeerSnob::Beers.style_families
   end
 
   def top_menu
