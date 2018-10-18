@@ -1,5 +1,7 @@
-require "beer_snob/version"
+# Acts as the environment
+# The executable file will require this file and this file requires all 
+# other dependencies
 
-module BeerSnob
-  # Your code goes here...
-end
+require_relative "./beer_snob/version"
+require_relative "./beer_snob/cli"
+require_relative "./beer_snob/scraper"
