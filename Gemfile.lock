@@ -1,0 +1,41 @@
+PATH
+  remote: .
+  specs:
+    beer_snob (0.1.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    coderay (1.1.2)
+    marc (1.0.2)
+      scrub_rb (>= 1.0.1, < 2)
+      unf
+    method_source (0.9.0)
+    mini_portile2 (2.3.0)
+    nokogiri (1.8.5)
+      mini_portile2 (~> 2.3.0)
+    openurl (1.0.0)
+      marc
+      scrub_rb (~> 1.0)
+    pry (0.11.3)
+      coderay (~> 1.1.0)
+      method_source (~> 0.9.0)
+    rake (10.5.0)
+    scrub_rb (1.0.1)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.5)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  beer_snob!
+  bundler (~> 1.16)
+  nokogiri
+  openurl
+  pry
+  rake (~> 10.0)
+
+BUNDLED WITH
+   1.16.2
