@@ -4,4 +4,4 @@
 
 require_relative "./beer_snob/version"
 require_relative "./beer_snob/cli"
-require_relative "./beer_snob/scraper"
+# require_relative "./beer_snob/scraper"
