@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
 # Added require in order to pull code from other files
-require "./lib/beer_snob"
+require "bundler/setup"
+require "beer_snob"
 
 BeerSnob::CLI.new.call
