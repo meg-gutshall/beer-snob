@@ -72,6 +72,13 @@ This means we have to change the executable files's permissions. We can
 do this by cding into the `bin` folder and entering `chmod +x` followed 
 by your executable file's name.
 
+## The Executable File & CLI
+
+Encapsulate the app's logic in other files and then call it in the 
+executable file.
+
+The first step is to welcome the user.
+
 ## Scraping
 
 I decided to start my project by creating a `scraper.rb` file. I actually 
