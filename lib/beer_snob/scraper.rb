@@ -1,6 +1,9 @@
+require "nokogiri"
+require "open-uri"
 require 'pry'
 
 class BeerSnob::Scraper
+  attr_accessor :family_style, :style_name, :style_description
 
   def scrape
     beer_info = []
@@ -11,7 +14,7 @@ class BeerSnob::Scraper
     site.css("#content .style").each do |beer_site|
       a_to_z = beer_site.css(".simple li .value")
       each_beer = {
-        :style_family => beer_site.css(".family-name").text,
+        :family_style => beer_site.css(".family-name").text.gsub("Style Family: ", ""),
         :style_name => beer_site.css(".style-name").text,
         :style_description => beer_site.css("p")[1].text,
         :commercial_example => [],
@@ -40,7 +43,7 @@ class BeerSnob::Scraper
   
     beer_info << each_beer
     end
-  
+    beer_info
   end
 
 end
@@ -49,14 +52,14 @@ end
 
 
     # scrape A-to-Z guide info
-    a_to_z_guide = {
-      :alcohol => site.css("#content .entry-content ul")[6].text,
-      :carbonation => site.css("#content .entry-content ul")[8].text,
-      :clarity => site.css("#content .entry-content ul")[9].text,
-      :color => site.css("#content .entry-content ul")[10].text,
-      :country => site.css("#content .entry-content ul")[11].text,
-      :glass => site.css("#content .entry-content ul")[13].text,
-      :hop_ingredient => site.css("#content .entry-content ul")[14].text,
-      :malt_ingredient => site.css("#content .entry-content ul")[15].text
-    }
+    # a_to_z_guide = {
+    #   :alcohol => site.css("#content .entry-content ul")[6].text,
+    #   :carbonation => site.css("#content .entry-content ul")[8].text,
+    #   :clarity => site.css("#content .entry-content ul")[9].text,
+    #   :color => site.css("#content .entry-content ul")[10].text,
+    #   :country => site.css("#content .entry-content ul")[11].text,
+    #   :glass => site.css("#content .entry-content ul")[13].text,
+    #   :hop_ingredient => site.css("#content .entry-content ul")[14].text,
+    #   :malt_ingredient => site.css("#content .entry-content ul")[15].text
+    # }
     # TODO: iterate over element
