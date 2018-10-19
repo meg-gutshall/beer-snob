@@ -17,6 +17,9 @@ class BeerSnob::CLI
 
   def list_family_styles
     @family_styles = BeerSnob::Beers.family_styles
+    @family_styles.each.with_index(1) do |family, i|
+      puts "#{i}. #{family.name}"
+    end
   end
 
   def top_menu
@@ -28,7 +31,8 @@ class BeerSnob::CLI
       input = gets.strip
 
       if input.to_i > 0
-        puts @family_styles[input.to_i - 1]
+        family = @family_styles[input.to_i - 1]
+        puts "#{family.name}"
         # this output will be a short description of the beer style family (?) 
         # and a list of the beer styles under that family
       elsif input == "list"
