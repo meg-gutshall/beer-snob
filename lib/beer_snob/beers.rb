@@ -3,7 +3,25 @@ require 'pry'
 class BeerSnob::Beers
   attr_accessor :name, :info, :examples, :alcohol
 
-  def self.style_families
+  def self.family_styles
+    puts <<-DOC
+    \nBeer Style Families
+    1. "Pale Ales"
+    2. "Dark Lagers"
+    3. "Brown Ales"
+    4. "India Pale Ales"
+    5. "Wheat Beers"
+    6. "Strong Ales"
+    7. "Belgian Styles"
+    8. "Hybrid Beers"
+    9. "Porters"
+    10. "Stouts"
+    11. "Bocks"
+    12. "Scottish-Style Ales"
+    13. "Wild/Sour Beers"
+    14. "Piseners and Pale Lagers"
+    15. "Specialty Beers"
+  DOC
 
     family_style_1 = self.new
     family_style_1.name = "Pale Ales"
