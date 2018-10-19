@@ -5,7 +5,7 @@ class BeerSnob::CLI
 
   def call
     greeting
-    list_style_families
+    list_family_styles
     top_menu
     # sub_menu
     exit
@@ -15,8 +15,8 @@ class BeerSnob::CLI
     puts "\nTap in to BeerSnob!"
   end
 
-  def list_style_families
-    @style_families = BeerSnob::Beers.style_families
+  def list_family_styles
+    @family_styles = BeerSnob::Beers.family_styles
   end
 
   def top_menu
@@ -28,16 +28,16 @@ class BeerSnob::CLI
       
       case input
       when "1"
-        puts "\nMore info on Pale Ales..."
+        puts "\nList of Pale Ale beer styles..."
       when "2"
-        puts "\nMore info on Dark Lagers..."
+        puts "\nList of Dark Lager beer styles..."
       when "3"
-        puts "\nMore info on Brown Ales..."
+        puts "\nList of Brown Ale beer styles..."
       # until all style families are accounted for
       # this output will be a short description of the beer style family (?) 
       # and a list of the beer styles under that family
       when "list"
-        list_style_families
+        list_family_styles
       else
         # put else statement here
       end
@@ -64,7 +64,7 @@ class BeerSnob::CLI
       when "list"
         list_beer_styles   # will have to make this method
       when "back"
-        list_style_families
+        list_family_styles
         top_menu
       else
         # put else statement here
