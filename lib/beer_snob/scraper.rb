@@ -1,5 +1,3 @@
-require 'nokogiri'
-require 'openurl'
 require 'pry'
 
 class BeerSnob::Scraper
