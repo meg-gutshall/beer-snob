@@ -16,7 +16,7 @@ thus BeerSnob was born.
 
 ## Starting the Project
 
-I had quite a few delays in starting this project, each one pretty 
+I experienced quite a few delays in starting this project, each one pretty 
 frustrating. I'm working on the Visual Studio Code text editor in place 
 of the Learn IDE and have had several issues with setup that I've had to 
 solve — either through Google, message boards, or speaking with another 
@@ -74,20 +74,27 @@ by your executable file's name.
 
 ## The Executable File & CLI
 
-Encapsulate the app's logic in other files and then call it in the 
-executable file.
+I encapsulated the app's logic by writing methods in other files and 
+allowing them to be called in the executable file once the program is run.
 
 ### BeerSnob Executable File
 
 The app's executable file only needed one line of code that starts the 
-program. However, it also needs to be made aware that there are other 
-files in the app to call methods from or else the program won't start.
+program. However, it also needed to be made aware that there were other 
+files in the app to call methods from or else the program wouldn't start. 
+Therefore, I included a requirement line for the `beer_snob.rb` file, 
+which acts as an environment for the program as well as `bundler/setup` so 
+I could publish my gem if I chose to do so.
 
 ### CLI File
 
-The first step is to welcome the user. I created the `#call` method to do 
-this.
-...other CLI methods...
+The purpose of the CLI file is to call methods that act as basic functions 
+of the program using variables and methods created in the app's other 
+classes.
+
+I created a basic run method (`#call`) which contains the following 
+methods: 
+...list CLI methods...
 
 ## Scraping
 
@@ -116,3 +123,5 @@ nested hash in an array called `beer_info`.
 Next, I wanted to scrape information from "The A-Z of Beer Styles" section 
 of the page so that the user could access details on what each beer 
 characteristic entails.
+
+### Beers Scraper File
