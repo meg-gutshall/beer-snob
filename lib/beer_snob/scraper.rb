@@ -46,6 +46,15 @@ class BeerSnob::Scraper
     beer_info
   end
 
+  def self.family_styles
+    family_styles = []
+    beer_info = new.scrape
+    beer_info.map do |family|
+      family_styles << family[:family_style]
+    end
+    family_styles.uniq!
+  end
+
 end
 
 
