@@ -6,12 +6,10 @@ class BeerSnob::Beers
   def self.family_styles
     family_styles = []
     family_style = BeerSnob::Scraper.new.scrape
-
-
-    binding.pry
-
-
-
+    family_style.map do |family|
+      family_styles << family[:family_style]
+    end
+    family_styles.uniq!
   end
 
   def self.beer_styles
