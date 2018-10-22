@@ -5,6 +5,5 @@ require "nokogiri"
 require "open-uri"
 
 require_relative "./beer_snob/version"
-require_relative "./beer_snob/beers"
 require_relative "./beer_snob/cli"
 require_relative "./beer_snob/scraper"
