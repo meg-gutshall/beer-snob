@@ -2,12 +2,12 @@
 require 'pry'
 
 class BeerSnob::CLI
+  attr_accessor :trigger
 
   def call
     greeting
     list_family_styles
     top_menu
-    esc
   end
 
   def greeting
@@ -25,9 +25,9 @@ class BeerSnob::CLI
   def top_menu
     input = nil
     
-    while input != "esc"
+    while input != "exit"
       puts "\nEnter the number of the beer family style you'd like to learn more about."
-      puts "Type 'list' to display the beer family styles or type 'esc'."
+      puts "Type 'list' to display the beer family styles or type 'exit'."
       input = gets.strip
 
       if input.to_i > 0
@@ -42,7 +42,7 @@ class BeerSnob::CLI
         # display app instructions (a la "help")
       end
     end
-
+    exit
   end
 
   def list_beer_styles
@@ -53,24 +53,24 @@ class BeerSnob::CLI
       end
     end
     sub_menu
-    # TODO: fix numbering for this list
   end
 
-  # Readdress this method -- pry above method to find insertion point
   def sub_menu
     input = nil
     
-    while input != "esc"
+    while input != "exit"
       puts "\nEnter the number of the beer style you'd like to learn more about."
-      puts "Type 'list' to display the beer styles, type 'back' to choose a different family style, or type 'esc'."
+      puts "Type 'list' to display the beer styles, type 'back' to choose a different family style, or type 'exit'."
       input = gets.strip
       
       if input.to_i > 0
         family = @family_styles[input.to_i - 1]
         puts "#{family}"
         # this output will be a list of the beer styles under that family
+        # TODO: fix numbering for this list
       elsif input == "list"
         list_beer_styles
+        # TODO: have heading list again
       elsif input == "back"
         list_family_styles
         top_menu
@@ -79,10 +79,12 @@ class BeerSnob::CLI
         # display app instructions (a la "help")
       end
     end
+    exit
   end
 
-  def esc
+  def exit
     puts "\nLast call!"
+    exit!
   end
 
 end
