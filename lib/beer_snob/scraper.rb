@@ -35,8 +35,8 @@ class BeerSnob::Scraper
       # iterate through commercial examples
       beer_site.css(".winners li").each do |example|
         commercial_example = {
-          :brewery => example.css(".brewery").text,
-          :beer_name => example.css(".value").text
+          :beer_name => example.css(".brewery").text,
+          :brewery => example.css(".value a").text
         }
         each_beer[:commercial_example] << commercial_example
       end
