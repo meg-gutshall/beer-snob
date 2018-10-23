@@ -2,7 +2,6 @@
 require 'pry'
 
 class BeerSnob::CLI
-  attr_accessor :trigger
 
   def call
     greeting
@@ -45,11 +44,11 @@ class BeerSnob::CLI
   end
 
   def list_beer_styles
-    @beer_styles = BeerSnob::Scraper.new.scrape
+    @beer_styles = BeerSnob::Scraper.scrape
     puts "\n#{@family.chomp("s")} Beer Styles"
     @beer_styles.each.with_index(1) do |beer, i|
-      if beer[:family_style] == @family
-        puts "#{i}. #{beer[:style_name]}"
+      if beer["Family Style"] == @family
+        puts "#{i}. #{beer["Style Name"]}"
       end
     end
     sub_menu
@@ -65,27 +64,28 @@ class BeerSnob::CLI
       
       if input.to_i > 0
         beer = @beer_styles[input.to_i - 1]
-        puts "\n#{beer[:style_name]}"
-        puts "Style Family: #{beer[:family_style]}"
+        puts "\n#{beer["Style Name"]}"
+        puts "Style Family: #{beer["Family Style"]}"
         puts "\nDescription"
-        puts "#{beer[:style_description]}"
+        puts "#{beer["Style Description"]}"
         puts "\nU.S. Commercial Examples"
-        puts "#{beer[:commercial_example][0][:beer_name]} by #{beer[:commercial_example][0][:brewery]}"
-        puts "#{beer[:commercial_example][1][:beer_name]} by #{beer[:commercial_example][1][:brewery]}"
-        puts "#{beer[:commercial_example][2][:beer_name]} by #{beer[:commercial_example][2][:brewery]}"
+        puts "#{beer["Commercial Examples"][0]["Beer Name"]} by #{beer["Commercial Examples"][0]["Brewery"]}"
+        puts "#{beer["Commercial Examples"][1]["Beer Name"]} by #{beer["Commercial Examples"][1]["Brewery"]}"
+        puts "#{beer["Commercial Examples"][2]["Beer Name"]} by #{beer["Commercial Examples"][2]["Brewery"]}"
         puts "\nStyle A-Z"
-        puts "Alcohol: #{beer[:alcohol]}"
-        puts "Clarity: #{beer[:clarity]}"
-        puts "Color: #{beer[:color]}"
-        puts "Country: #{beer[:country]}"
-        puts "Hop Aroma/Flavor: #{beer[:hop_flavor]}"
-        puts "Common Hop Ingredients: #{beer[:hop_ingredient]}"
-        puts "Malt Aroma/Flavor: #{beer[:malt_flavor]}"
-        puts "Common Malt Ingredients: #{beer[:malt_ingredient]}"
+        puts "Alcohol: #{beer["alcohol"]}"
+        puts "Clarity: #{beer["Clarity"]}"
+        puts "Brewing Condition/Process: #{beer["Brewing Condition/Process"]}" unless beer["Brewing Condition/Process"] == nil
+        puts "Color: #{beer["Color"]}"
+        puts "Country: #{beer["Country of Origin"]}"
+        puts "Hop Aroma/Flavor: #{beer["Hop Aroma/Flavor"]}"
+        puts "Common Hop Ingredients: #{beer["Common Hop Ingredients"]}"
+        puts "Malt Aroma/Flavor: #{beer["Malt Aroma/Flavor"]}"
+        puts "Common Malt Ingredients: #{beer["Common Malt Ingredients"]}"
         puts "\nFood Pairings"
-        puts "Cheese: #{beer[:cheese]}"
-        puts "Entrée: #{beer[:entree]}"
-        puts "Dessert: #{beer[:dessert]}"
+        puts "Cheese: #{beer["Cheese"]}"
+        puts "Entrée: #{beer["Entrée"]}"
+        puts "Dessert: #{beer["Dessert"]}"
         
         # this output is the beer style characteristics
       elsif input == "list"
