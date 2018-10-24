@@ -16,8 +16,8 @@ class BeerSnob::CLI
   def list_family_styles
     puts "\nBeer Family Styles"
     @family_styles = BeerSnob::Scraper.family_styles
-    @family_styles.each.with_index(1) do |family, i|
-      puts "#{i}. #{family}"
+    @family_styles.each.with_index(1) do |family_style, i|
+      puts "#{i}. #{family_style}"
     end
   end
 
@@ -44,13 +44,15 @@ class BeerSnob::CLI
   end
 
   def list_beer_styles
-    @beer_styles = BeerSnob::Scraper.scrape
+    # @beer_styles = BeerSnob::Scraper.scrape
     puts "\n#{@family.chomp("s")} Beer Styles"
-    @beer_styles.each.with_index(1) do |beer, i|
+    BeerSnob::Scraper.scrape.each.with_index do |beer, i|
+      binding.pry
       if beer["Family Style"] == @family
         puts "#{i}. #{beer["Style Name"]}"
       end
     end
+    
     sub_menu
   end
 
@@ -64,7 +66,7 @@ class BeerSnob::CLI
       
       if input.to_i > 0
         beer = @beer_styles[input.to_i - 1]
-        puts "\n#{beer["Style Name"]}"
+        puts "\nStyle Name: #{beer["Style Name"]}"
         puts "Style Family: #{beer["Family Style"]}"
         puts "\nDescription"
         puts "#{beer["Style Description"]}"

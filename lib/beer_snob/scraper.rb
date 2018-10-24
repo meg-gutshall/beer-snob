@@ -16,7 +16,7 @@ class BeerSnob::Scraper
         "Style Name" => beer_site.css(".style-name").text,
         "Style Description" => beer_site.css("p")[1].text,
         "Commercial Examples" => [],
-        "alcohol" => beer_site.css(".simple li")[11].text,
+        "alcohol" => beer_site.css(".simple li")[11].text
       }
 
       a_to_z.each do |char|
@@ -32,6 +32,7 @@ class BeerSnob::Scraper
         each_beer["Commercial Examples"] << commercial_example
       end
   
+      
     @@beer_info << each_beer
     end
     @@beer_info
