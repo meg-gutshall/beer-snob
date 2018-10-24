@@ -12,11 +12,11 @@ class Scraper
     @@site.css("#content .style").each do |beer_site|
       a_to_z = beer_site.css(".simple li")
       each_beer = {
-        "Family Style" => beer_site.css(".family-name").text.gsub("Style Family: ", ""),
-        "Style Name" => beer_site.css(".style-name").text,
-        "Style Description" => beer_site.css("p")[1].text,
-        "Commercial Examples" => [],
-        "alcohol" => beer_site.css(".simple li")[11].text
+        :family => beer_site.css(".family-name").text.gsub("Style Family: ", ""),
+        :style_name => beer_site.css(".style-name").text,
+        :description => beer_site.css("p")[1].text,
+        :commercial_examples => [],
+        :alcohol => beer_site.css(".simple li")[11].text
       }
 
       a_to_z.each do |char|
@@ -26,10 +26,10 @@ class Scraper
       # iterate through commercial examples
       beer_site.css(".winners li").each do |example|
         commercial_example = {
-          "Beer Name" => example.css(".brewery").text,
-          "Brewery" => example.css(".value a").text
+          :beer_name => example.css(".brewery").text,
+          :brewery => example.css(".value a").text
         }
-        each_beer["Commercial Examples"] << commercial_example
+        each_beer[:commercial_examples] << commercial_example
       end
   
       
