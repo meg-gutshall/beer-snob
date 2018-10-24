@@ -94,7 +94,9 @@ classes.
 
 I created a basic run method (`#call`) which contains the following 
 methods: 
-...list CLI methods...
+
+TODO: list CLI methods
+TODO: display key only if it has a value
 
 ## Scraping
 
@@ -124,4 +126,41 @@ Next, I wanted to scrape information from "The A-Z of Beer Styles" section
 of the page so that the user could access details on what each beer 
 characteristic entails.
 
-### Beers Scraper File
+TODO: commercial_examples subiteration
+
+## Troubleshooting
+
+### Scraping
+
+For you to be able to get a sense of the document structure of the website 
+I was scraping from, I'm including the site link here: 
+[Beer Styles Study Guide](https://www.craftbeer.com/beer/beer-styles-guide)
+
+The site that I decided to scrape is structured a bit differently than I 
+would have done. Not all the HTML elements are nested properly and a lot 
+of them either don't have classes or they're not descriptive of the actual 
+element. Therefore, when scraping the site, I originally decided to 
+iterate over the `<li>` tags and use indexes to drawn out the information 
+and associate it to the proper key. Unfortunately, some of the beer styles 
+include the "Breweing and Conditioning Process" characteristics while 
+other do not. I discovered this after my CLI displayed info associated 
+with the wrong characteristic for some of the beer styles, shifting them 
+down by one line item.
+
+So I went back to the scraper drawing board. I drew on an inspiration from 
+an earlier scraper lab. I created a subiteration within my #scrape method 
+to create a key/value pair only if the key exists. I assigned the new key 
+to be created from the `param` class and its corresponding value from the 
+`value` class. Now this process scrapes more information than I want to 
+display, but it's only a matter of displaying what I want through the CLI 
+file and not using the rest.
+
+I didn't have to change anything for the Commercial Examples characteristic 
+since I also created a subiteration for those, which dug deeper down in 
+the nested levels to retrieve the specific beer and brewery information. 
+However, I did have to treat the Alcohol characteristic differently because 
+instead of storing its value in a `<span class="value">` element, it 
+inserts the value text inside the `<li>` element. Thankfully for this 
+characteristic I was able to keep my indexing method as it's the first 
+line under the "Style A-Z" category and, therefore, is unaffected by the 
+addition of other characteristics.
