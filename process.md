@@ -164,3 +164,5 @@ inserts the value text inside the `<li>` element. Thankfully for this
 characteristic I was able to keep my indexing method as it's the first 
 line under the "Style A-Z" category and, therefore, is unaffected by the 
 addition of other characteristics.
+
+### File Interaction
