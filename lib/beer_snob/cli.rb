@@ -1,7 +1,7 @@
 # CLI Controller
 require 'pry'
 
-class BeerSnob::CLI
+class CLI
 
   def call
     greeting

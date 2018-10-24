@@ -2,7 +2,7 @@ require "nokogiri"
 require "open-uri"
 require 'pry'
 
-class BeerSnob::Scraper
+class Scraper
   @@beer_info = []
   @@site = Nokogiri::HTML(open("https://www.craftbeer.com/beer/beer-styles-guide"))
 

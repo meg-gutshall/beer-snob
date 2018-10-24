@@ -4,4 +4,4 @@
 require "bundler/setup"
 require "beer_snob"
 
-BeerSnob::CLI.new.call
+CLI.new.call

@@ -1,4 +1,4 @@
-class BeerSnob::Art
+class Art
 
   def decor
     puts "         .:.      .:.         .:."
