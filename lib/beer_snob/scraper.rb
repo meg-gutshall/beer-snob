@@ -12,16 +12,11 @@ class Scraper
     @@site.css("#content .style").each do |beer_site|
       a_to_z = beer_site.css(".simple li")
       each_beer = {
-        :family => beer_site.css(".family-name").text.gsub("Style Family: ", ""),
+        :family_name => beer_site.css(".family-name").text.gsub("Style Family: ", ""),
         :style_name => beer_site.css(".style-name").text,
         :description => beer_site.css("p")[1].text,
-        :commercial_examples => [],
-        :alcohol => beer_site.css(".simple li")[11].text
+        :commercial_examples => []
       }
-
-      a_to_z.each do |char|
-        each_beer["#{char.css(".param").text}"] = "#{char.css(".value").text}"
-      end
       
       # iterate through commercial examples
       beer_site.css(".winners li").each do |example|
@@ -41,7 +36,7 @@ class Scraper
   def self.family_styles
     family_styles = []
     scrape.map do |family|
-      family_styles << family["Family Style"]
+      family_styles << family[:family_name]
     end
     family_styles.uniq!
   end

@@ -1,7 +1,7 @@
 require "pry"
 
 class Beers
-  attr_accessor :family, :style_name, :description, :commercial_examples, :beer_name, :brewery, :alcohol
+  attr_accessor :family_name, :style_name, :description, :commercial_examples, :beer_name, :brewery
 
   @@all = []
 

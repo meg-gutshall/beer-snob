@@ -165,4 +165,8 @@ characteristic I was able to keep my indexing method as it's the first
 line under the "Style A-Z" category and, therefore, is unaffected by the 
 addition of other characteristics.
 
-### File Interaction
+### Simplifying Program
+
+I decided to take out the additional characteristics that were difficult 
+to scrape because the way I scraped them the key came back as a String and 
+not a Symbol. It would not interact well with the beers.rb and cli.rb files.

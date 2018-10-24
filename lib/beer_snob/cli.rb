@@ -4,8 +4,6 @@ require 'pry'
 class CLI
 
   def call
-    Beers.new(Scraper.scrape)
-    binding.pry
     greeting
     list_family_styles
     top_menu
@@ -48,9 +46,8 @@ class CLI
     beer_styles = Scraper.scrape
     puts "\n#{@family.chomp("s")} Beer Styles"
     beer_styles.each.with_index do |beer, i|
-      binding.pry
-      if beer["Family Style"] == @family
-        puts "#{i}. #{beer["Style Name"]}"
+      if beer[:family_name] == @family
+        puts "#{i}. #{beer[:style_name]}"
       end
     end
     
@@ -68,27 +65,13 @@ class CLI
       if input.to_i > 0
         beer = @beer_styles[input.to_i - 1]
         puts "\nStyle Name: #{beer[:style_name]}"
-        puts "Style Family: #{beer[:family]}"
+        puts "Style Family: #{beer[:family_name]}"
         puts "\nDescription"
         puts "#{beer[:description]}"
         puts "\nU.S. Commercial Examples"
         puts "#{beer[:commercial_examples][0][:beer_name]} by #{beer[:commercial_examples][0][:brewery]}"
         puts "#{beer[:commercial_examples][1][:beer_name]} by #{beer[:commercial_examples][1][:brewery]}"
         puts "#{beer[:commercial_examples][2][:beer_name]} by #{beer[:commercial_examples][2][:brewery]}"
-        puts "\nStyle A-Z"
-        puts "Alcohol: #{beer[:alcohol]}"
-        puts "Clarity: #{beer["Clarity"]}"
-        puts "Brewing Condition/Process: #{beer["Brewing Condition/Process"]}" unless beer["Brewing Condition/Process"] == nil
-        puts "Color: #{beer["Color"]}"
-        puts "Country: #{beer["Country of Origin"]}"
-        puts "Hop Aroma/Flavor: #{beer["Hop Aroma/Flavor"]}"
-        puts "Common Hop Ingredients: #{beer["Common Hop Ingredients"]}"
-        puts "Malt Aroma/Flavor: #{beer["Malt Aroma/Flavor"]}"
-        puts "Common Malt Ingredients: #{beer["Common Malt Ingredients"]}"
-        puts "\nFood Pairings"
-        puts "Cheese: #{beer["Cheese"]}"
-        puts "Entrée: #{beer["Entrée"]}"
-        puts "Dessert: #{beer["Dessert"]}"
         
         # this output is the beer style characteristics
       elsif input == "list"
