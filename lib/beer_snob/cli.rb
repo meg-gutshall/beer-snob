@@ -4,6 +4,8 @@ require 'pry'
 class CLI
 
   def call
+    Beers.new(Scraper.scrape)
+    binding.pry
     greeting
     list_family_styles
     top_menu
@@ -15,8 +17,7 @@ class CLI
 
   def list_family_styles
     puts "\nBeer Family Styles"
-    @family_styles = BeerSnob::Scraper.family_styles
-    @family_styles.each.with_index(1) do |family_style, i|
+    Scraper.family_styles.each.with_index(1) do |family_style, i|
       puts "#{i}. #{family_style}"
     end
   end
@@ -30,7 +31,7 @@ class CLI
       input = gets.strip
 
       if input.to_i > 0
-        @family = @family_styles[input.to_i - 1]
+        @family = Scraper.family_styles[input.to_i - 1]
         list_beer_styles
         # this output is a list of the beer styles under that family
       elsif input == "list"
@@ -44,9 +45,9 @@ class CLI
   end
 
   def list_beer_styles
-    # @beer_styles = BeerSnob::Scraper.scrape
+    beer_styles = Scraper.scrape
     puts "\n#{@family.chomp("s")} Beer Styles"
-    BeerSnob::Scraper.scrape.each.with_index do |beer, i|
+    beer_styles.each.with_index do |beer, i|
       binding.pry
       if beer["Family Style"] == @family
         puts "#{i}. #{beer["Style Name"]}"
@@ -66,16 +67,16 @@ class CLI
       
       if input.to_i > 0
         beer = @beer_styles[input.to_i - 1]
-        puts "\nStyle Name: #{beer["Style Name"]}"
-        puts "Style Family: #{beer["Family Style"]}"
+        puts "\nStyle Name: #{beer[:style_name]}"
+        puts "Style Family: #{beer[:family]}"
         puts "\nDescription"
-        puts "#{beer["Style Description"]}"
+        puts "#{beer[:description]}"
         puts "\nU.S. Commercial Examples"
-        puts "#{beer["Commercial Examples"][0]["Beer Name"]} by #{beer["Commercial Examples"][0]["Brewery"]}"
-        puts "#{beer["Commercial Examples"][1]["Beer Name"]} by #{beer["Commercial Examples"][1]["Brewery"]}"
-        puts "#{beer["Commercial Examples"][2]["Beer Name"]} by #{beer["Commercial Examples"][2]["Brewery"]}"
+        puts "#{beer[:commercial_examples][0][:beer_name]} by #{beer[:commercial_examples][0][:brewery]}"
+        puts "#{beer[:commercial_examples][1][:beer_name]} by #{beer[:commercial_examples][1][:brewery]}"
+        puts "#{beer[:commercial_examples][2][:beer_name]} by #{beer[:commercial_examples][2][:brewery]}"
         puts "\nStyle A-Z"
-        puts "Alcohol: #{beer["alcohol"]}"
+        puts "Alcohol: #{beer[:alcohol]}"
         puts "Clarity: #{beer["Clarity"]}"
         puts "Brewing Condition/Process: #{beer["Brewing Condition/Process"]}" unless beer["Brewing Condition/Process"] == nil
         puts "Color: #{beer["Color"]}"
