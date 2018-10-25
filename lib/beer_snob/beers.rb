@@ -6,11 +6,10 @@ class Beers
   @@all = []
 
   def initialize(beers_hash)
-    beers_hash.each do |beer|
-      beer.each do |attribute, value|
-        self.send("#{attribute}=", value)
-      end
+    beers_hash.each do |attribute, value|
+      self.send("#{attribute}=", value)
     end
+    @@all << self
   end
 
   def self.create_from_scrape(beers_array)
@@ -19,5 +18,8 @@ class Beers
     end
   end
 
+  def self.all
+    @@all
+  end
 
 end

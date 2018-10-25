@@ -4,6 +4,8 @@ require 'pry'
 class CLI
 
   def call
+    @beer_info = Beers.create_from_scrape(Scraper.scrape)
+    # binding.pry
     greeting
     list_family_styles
     top_menu
@@ -15,8 +17,12 @@ class CLI
 
   def list_family_styles
     puts "\nBeer Family Styles"
-    Scraper.family_styles.each.with_index(1) do |family_style, i|
-      puts "#{i}. #{family_style}"
+    @family_styles = []
+    @beer_info.map do |beer|
+      @family_styles << beer.family_name
+    end
+    @family_styles.uniq!.each.with_index(1) do |family_name, i|
+      puts "#{i}. #{family_name}"
     end
   end
 
@@ -29,8 +35,9 @@ class CLI
       input = gets.strip
 
       if input.to_i > 0
-        @family = Scraper.family_styles[input.to_i - 1]
+        @family = @family_styles[input.to_i - 1]
         list_beer_styles
+        sub_menu
         # this output is a list of the beer styles under that family
       elsif input == "list"
         list_family_styles
@@ -43,18 +50,16 @@ class CLI
   end
 
   def list_beer_styles
-    beer_styles = Scraper.scrape
     puts "\n#{@family.chomp("s")} Beer Styles"
-    beer_styles.each.with_index do |beer, i|
-      if beer[:family_name] == @family
-        puts "#{i}. #{beer[:style_name]}"
+    @beer_info.each.with_index(1) do |beer, i|
+      if beer.family_name == @family
+        puts "#{i}. #{beer.style_name}"
       end
     end
-    
-    sub_menu
   end
 
   def sub_menu
+    # binding.pry
     input = nil
     
     while input != "exit"
@@ -63,7 +68,7 @@ class CLI
       input = gets.strip
       
       if input.to_i > 0
-        beer = @beer_styles[input.to_i - 1]
+        beer = list_beer_styles[input.to_i - 1]
         puts "\nStyle Name: #{beer[:style_name]}"
         puts "Style Family: #{beer[:family_name]}"
         puts "\nDescription"
