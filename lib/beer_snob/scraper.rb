@@ -1,6 +1,6 @@
 require "nokogiri"
 require "open-uri"
-require 'pry'
+require "pry"
 
 class Scraper
   @@beer_info = []
@@ -27,31 +27,9 @@ class Scraper
         each_beer[:commercial_examples] << commercial_example
       end
   
-      
     @@beer_info << each_beer
     end
     @@beer_info
   end
 
-  def self.family_styles
-    family_styles = []
-    scrape.map do |family|
-      family_styles << family[:family_name]
-    end
-    family_styles.uniq!
-  end
-
 end
-
-  # scrape A-to-Z guide info
-  # a_to_z_guide = {
-  #   :alcohol => site.css("#content .entry-content ul")[6].text,
-  #   :carbonation => site.css("#content .entry-content ul")[8].text,
-  #   :clarity => site.css("#content .entry-content ul")[9].text,
-  #   :color => site.css("#content .entry-content ul")[10].text,
-  #   :country => site.css("#content .entry-content ul")[11].text,
-  #   :glass => site.css("#content .entry-content ul")[13].text,
-  #   :hop_ingredient => site.css("#content .entry-content ul")[14].text,
-  #   :malt_ingredient => site.css("#content .entry-content ul")[15].text
-  # }
-  # TODO: iterate over element
