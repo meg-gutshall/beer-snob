@@ -1,11 +1,14 @@
+require "paint"
+
 class Art
 
   def decor
+    puts ""
     puts "         .:.      .:.         .:."
     puts "       _oOoOo   _oOoOo       oOoOo_"
     puts "      [_|||||  [_|||||       |||||_]"
     puts "        |||||    |||||       |||||"
-    puts "  jgs   ~~~~~    ~~~~~       ~~~~~"
+    puts "        ~~~~~    ~~~~~       ~~~~~"
   end
 
 end
