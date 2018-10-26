@@ -5,7 +5,6 @@ class CLI
 
   def call
     @beer_info = Beers.create_from_scrape(Scraper.scrape)
-    # binding.pry
     greeting
     list_family_styles
     top_menu
@@ -50,7 +49,7 @@ class CLI
   end
 
   def list_beer_styles
-    puts "\n#{@family.chomp("s")} Beer Styles"
+    puts "\n#{@family.chomp("s")} Styles"
     @beer_info.each.with_index(1) do |beer, i|
       if beer.family_name == @family
         puts "#{i}. #{beer.style_name}"
@@ -59,7 +58,6 @@ class CLI
   end
 
   def sub_menu
-    # binding.pry
     input = nil
     
     while input != "exit"
@@ -69,15 +67,14 @@ class CLI
       
       if input.to_i > 0
         beer = list_beer_styles[input.to_i - 1]
-        puts "\nStyle Name: #{beer[:style_name]}"
-        puts "Style Family: #{beer[:family_name]}"
+        puts "\nStyle Name: #{beer.style_name}"
+        puts "Style Family: #{beer.family_name}"
         puts "\nDescription"
-        puts "#{beer[:description]}"
-        puts "\nU.S. Commercial Examples"
-        puts "#{beer[:commercial_examples][0][:beer_name]} by #{beer[:commercial_examples][0][:brewery]}"
-        puts "#{beer[:commercial_examples][1][:beer_name]} by #{beer[:commercial_examples][1][:brewery]}"
-        puts "#{beer[:commercial_examples][2][:beer_name]} by #{beer[:commercial_examples][2][:brewery]}"
-        
+        puts "#{beer.description}"
+        puts "\nU.S. Commercial Examples:"
+        puts "#{beer.commercial_examples[0][:beer_name]} by #{beer.commercial_examples[0][:brewery]}"
+        puts "#{beer.commercial_examples[1][:beer_name]} by #{beer.commercial_examples[1][:brewery]}"
+        puts "#{beer.commercial_examples[2][:beer_name]} by #{beer.commercial_examples[2][:brewery]}"
         # this output is the beer style characteristics
       elsif input == "list"
         list_beer_styles
@@ -93,7 +90,9 @@ class CLI
   end
 
   def exit
+    Art.new.decor
     puts "\nLast call!"
+    puts ""
     exit!
   end
 
