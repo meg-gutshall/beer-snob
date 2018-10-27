@@ -1,6 +1,4 @@
 # CLI Controller
-require 'pry'
-
 
 class CLI
 
@@ -18,12 +16,8 @@ class CLI
   def list_family_styles
     puts "\nFamily Styles".colorize(:light_magenta)
     @family_styles = []
-    @beer_info.map do |beer|
-      @family_styles << beer.family_name
-    end
-    @family_styles.uniq!.each.with_index(1) do |family_name, i|
-      puts "#{i}. #{family_name}"
-    end
+    @beer_info.map {|beer| @family_styles << beer.family_name}
+    @family_styles.uniq!.each.with_index(1) {|family_name, i| puts "#{i}. #{family_name}"}
   end
 
   def top_menu
@@ -31,11 +25,7 @@ class CLI
     
     while input != "exit"
       puts "\nEnter the number of the family style you'd like to learn more about."
-      print "\nType "
-      print "'families'".colorize(:light_green)
-      print " to display the list of family styles again or type "
-      print "'exit'".colorize(:light_green)
-      puts " to quit."
+      puts "\nType " + "'families'".colorize(:light_green) + " to display the list of family styles again or type " + "'exit'".colorize(:light_green) + " to quit."
       input = gets.strip
 
       if input.to_i > 0 && input.to_i < 16
@@ -71,21 +61,13 @@ class CLI
     
     puts "\nEnter the number of the beer style you'd like to learn more about."
     while input != "exit"
-      print "\nType "
-      print "'styles'".colorize(:light_green)
-      print " to display the list of beer styles again, type "
-      print "'families'".colorize(:light_green)
-      print " to display the list of family styles again or type "
-      print "'exit'".colorize(:light_green)
-      puts " to quit."
+      puts "\nType " + "'styles'".colorize(:light_green) + " to display the list of beer styles again, type " + "'families'".colorize(:light_green) + " to display the list of family styles again or type " + "'exit'".colorize(:light_green) + " to quit."
       input = gets.strip
       
       if input.to_i > 0 && input.to_i <= @count
         beer = @beer_styles[input.to_i - 1]
-        print "\nStyle Name:".colorize(:light_magenta)
-        puts " #{beer.style_name}"
-        print "Style Family:".colorize(:light_magenta)
-        puts " #{beer.family_name}"
+        puts "\nStyle Name:".colorize(:light_magenta) + " #{beer.style_name}"
+        puts "Style Family:".colorize(:light_magenta) + " #{beer.family_name}"
         puts "\nDescription:".colorize(:light_magenta)
         puts "#{beer.description}"
         puts "\nU.S. Commercial Examples:".colorize(:light_magenta)
