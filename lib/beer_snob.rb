@@ -3,7 +3,6 @@
 # other dependencies
 require "nokogiri"
 require "open-uri"
-require "paint"
 require "colorize"
 
 require_relative "./beer_snob/version"
