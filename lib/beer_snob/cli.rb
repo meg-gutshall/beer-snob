@@ -2,7 +2,7 @@
 
 class CLI
 
-  def call
+  def learn
     @beer_info = Beers.create_from_scrape(Scraper.scrape)
     greeting
     list_family_styles
