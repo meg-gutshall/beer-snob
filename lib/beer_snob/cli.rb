@@ -10,11 +10,11 @@ class CLI
   end
 
   def greeting
-    puts "\nTap in to BeerSnob!"
+    puts "\nTap in to BeerSnob!".colorize(:light_green)
   end
 
   def list_family_styles
-    puts "\nFamily Styles".colorize(:light_magenta)
+    puts "\nBeer Style Families".colorize(:light_magenta)
     @family_styles = []
     @beer_info.map {|beer| @family_styles << beer.family_name}
     @family_styles.uniq!.each.with_index(1) {|family_name, i| puts "#{i}. #{family_name}"}
@@ -25,7 +25,7 @@ class CLI
     
     while input != "exit"
       puts "\nEnter the number of the family style you'd like to learn more about."
-      puts "\nType " + "'families'".colorize(:light_green) + " to display the list of family styles again or type " + "'exit'".colorize(:light_green) + " to quit."
+      puts "\nType " + "'families'".colorize(:light_green) + " to display the list of style families again or type " + "'exit'".colorize(:light_green) + " to quit."
       input = gets.strip
 
       if input.to_i > 0 && input.to_i < 16
@@ -38,7 +38,7 @@ class CLI
       elsif input.downcase == "exit"
         exit
       else
-        puts "\nYou're flagged!".colorize(:light_red)
+        puts "\nYou're flagged! Stop drinking!".colorize(:light_red)
       end
     end
   end
@@ -61,7 +61,7 @@ class CLI
     
     puts "\nEnter the number of the beer style you'd like to learn more about."
     while input != "exit"
-      puts "\nType " + "'styles'".colorize(:light_green) + " to display the list of beer styles again, type " + "'families'".colorize(:light_green) + " to display the list of family styles again or type " + "'exit'".colorize(:light_green) + " to quit."
+      puts "\nType " + "'styles'".colorize(:light_green) + " to display the list of beer styles again, type " + "'families'".colorize(:light_green) + " to display the list of style families again or type " + "'exit'".colorize(:light_green) + " to quit."
       input = gets.strip
       
       if input.to_i > 0 && input.to_i <= @count
@@ -84,7 +84,7 @@ class CLI
       elsif input.downcase == "exit"
         exit
       else
-        puts "\nYou're flagged!".colorize(:light_red)
+        puts "\nYou're flagged! Stop drinking!".colorize(:light_red)
       end
     end
   end
