@@ -1,5 +1,9 @@
 # BeerSnob
 
+## Description
+
+App users can choose from a predefined list to learn about different beer styles and their characteristics.
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -19,6 +23,8 @@ Or install it yourself as:
 ## Usage
 
 To use BeerSnob, `cd` into the gemfile, then type `./bin/beer-snob` into the terminal to begin the app. It will prompt you to pick a family style and then a beer style from that family's list. Type `styles` to display the list of beer styles from the chosen family, type `families` to display the list of family styles, or type `exit` to quit the application.
+
+[Demo video here.](https://drive.google.com/file/d/15_mSIfGTjqer3IwfHPyB7H9jBEGa0Zto/view?usp=sharing)
 
 ## Development
 
