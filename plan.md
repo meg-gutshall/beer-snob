@@ -2,8 +2,8 @@
 
 ## Purpose
 
-App users can look up different types of beer by style and learn more 
-about each type.
+App users can choose from a predefined list to learn about different beer 
+styles and their characteristics.
 
 ## Layout
 
@@ -14,13 +14,25 @@ Once the user chooses a beer style family, a list of beer style names
 within that family will be displayed to choose from numerically. The user 
 will then select a beer style name and be shown more details.
 
-Each beer style page will show: the beer style family, the beer style 
-name, a short description of the beer style, commercial examples of the 
-beer style (listing beer name and brewery), beer style characteristics, 
-and common food pairings.
+Each beer style page will show: the style family, the style name, a short 
+description of the beer style, and commercial examples (listing beer name 
+and brewery).
 
-On each page, the user will have the option to go back one page in the 
-app, go home (except for home page), ask for help, and view an "A-Z Style 
-Guide" for more details on what each beer characteristic entails. Also 
-I may enable the user to proceed to the next beer style from another 
-beer style page within each beer style family.
+The users will have the option to redisplay the list of beer style 
+families or, upon selecting a family, redisplay a list of that family’s 
+beer styles. Also the option to exit the app is available on every page.
+
+## Planned Future Updates
+
+The plans for this app were severely simplified from the original due to 
+time constraints. Expected future additions are as follows:
+
+### New Information
+A-Z characteristics and food pairing suggestions will be added for each 
+beer style along with a style guide detailing the meaning of each A-Z 
+characteristic.
+
+### New Features
+The user will be able to access the “A-Z Style Guide” from each beer style 
+page. They will also have the ability to move to the next or previous beer 
+style without backing out to the beer styles list first.
