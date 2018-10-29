@@ -5,7 +5,7 @@ class CLI
   def learn
     @beer_info = Beers.create_from_scrape(Scraper.scrape)
     greeting
-    list_family_styles
+    list_style_families
     top_menu
   end
 
@@ -13,7 +13,7 @@ class CLI
     puts "\nTap in to BeerSnob!".colorize(:light_green)
   end
 
-  def list_family_styles
+  def list_style_families
     puts "\nBeer Style Families".colorize(:light_magenta)
     @family_styles = []
     @beer_info.map {|beer| @family_styles << beer.family_name}
@@ -79,7 +79,7 @@ class CLI
         list_beer_styles
         puts "\nEnter the number of the beer style you'd like to learn more about."
       elsif input.downcase == "families"
-        list_family_styles
+        list_style_families
         top_menu
       elsif input.downcase == "exit"
         exit
