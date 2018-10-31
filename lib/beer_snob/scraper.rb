@@ -1,13 +1,11 @@
-require "pry"
-
 class Scraper
-  @@beer_info = []
-  @@site = Nokogiri::HTML(open("https://www.craftbeer.com/beer/beer-styles-guide"))
 
   def self.scrape
+    beer_info = []
+    site = Nokogiri::HTML(open("https://www.craftbeer.com/beer/beer-styles-guide"))
     commercial_example = {}
 
-    @@site.css("#content .style").each do |beer_site|
+    site.css("#content .style").each do |beer_site|
       a_to_z = beer_site.css(".simple li")
       each_beer = {
         :family_name => beer_site.css(".family-name").text.gsub("Style Family: ", ""),
@@ -16,7 +14,6 @@ class Scraper
         :commercial_examples => []
       }
       
-      # binding.pry
       # iterate through commercial examples
       beer_site.css(".winners li").each do |example|
         commercial_example = {
@@ -26,9 +23,9 @@ class Scraper
         each_beer[:commercial_examples] << commercial_example
       end
   
-    @@beer_info << each_beer
+    beer_info << each_beer
     end
-    @@beer_info
+    beer_info
   end
 
 end
