@@ -18,7 +18,6 @@ GEM
     openurl (1.0.0)
       marc
       scrub_rb (~> 1.0)
-    paint (2.0.1)
     pry (0.11.3)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
@@ -37,7 +36,6 @@ DEPENDENCIES
   colorize
   nokogiri
   openurl
-  paint
   pry
   rake (~> 10.0)
 
