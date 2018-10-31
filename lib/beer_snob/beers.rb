@@ -16,6 +16,14 @@ class Beers
     end
   end
 
+  def self.all_family_names
+    @@all.map {|beer| beer.family_name}.uniq
+  end
+
+  def self.find_by_family_name(family_name)
+    @@all.select {|beer| beer.family_name == family_name}
+  end
+
   def self.all
     @@all
   end
