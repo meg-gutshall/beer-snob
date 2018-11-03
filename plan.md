@@ -27,6 +27,9 @@ beer styles. Also the option to exit the app is available on every page.
 The plans for this app were severely simplified from the original due to 
 time constraints. Expected future additions are as follows:
 
+### New File Structure
+I plan on making a `Families` class in an update to make the app more streamlined. The reason I didn't in the first place was because of the way the website I scraped from was structured.
+
 ### New Information
 A-Z characteristics and food pairing suggestions will be added for each 
 beer style along with a style guide detailing the meaning of each A-Z 
