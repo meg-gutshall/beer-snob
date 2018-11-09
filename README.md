@@ -4,21 +4,23 @@
 
 App users can choose from a predefined list to learn about different beer styles and their characteristics.
 
+<---!
 ## Installation
-
+\\
 Add this line to your application's Gemfile:
-
+\\
 ```ruby
 gem 'beer_snob'
 ```
-
+\\
 And then execute:
-
+\\
     $ bundle
-
+\\
 Or install it yourself as:
-
+\\
     $ gem install beer_snob
+--->
 
 ## Usage
 
