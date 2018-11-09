@@ -4,9 +4,11 @@
 
 App users can choose from a predefined list to learn about different beer styles and their characteristics.
 
-<---!
 ## Installation
-\\
+
+I still want to add some features to this app so it is not yet a gem, but will be in the future! For now, clone down the repo by entering `git clone https://github.com/meg-gutshall/beer_snob.git` into your terminal.
+
+<!-- \\
 Add this line to your application's Gemfile:
 \\
 ```ruby
@@ -19,12 +21,11 @@ And then execute:
 \\
 Or install it yourself as:
 \\
-    $ gem install beer_snob
---->
+    $ gem install beer_snob -->
 
 ## Usage
 
-To use BeerSnob, `cd` into the gemfile, then type `./bin/beer-snob` into the terminal to begin the app. It will prompt you to pick a family style and then a beer style from that family's list. Type `styles` to display the list of beer styles from the chosen family, type `families` to display the list of family styles, or type `exit` to quit the application.
+To run BeerSnob, `cd` into the file where your clone is stored, then type `./bin/beer-snob` into the terminal to begin the app. It will prompt you to pick a family style and then a beer style from that family's list. Type `styles` to display the list of beer styles from the chosen family, type `families` to display the list of family styles, or type `exit` to quit the application.
 
 [![Demo video](http://img.youtube.com/vi/m-sAVQi9MQo/0.jpg)](http://www.youtube.com/watch?v=m-sAVQi9MQo)
 
