@@ -31,7 +31,7 @@ class CLI
         sub_menu(Beers.find_by_family_name(Beers.all_family_names[input.to_i - 1]))
         # this output is a list of the beer styles under that family
       elsif input.downcase == "families"
-        list_family_styles
+        list_style_families
       elsif input.downcase == "exit"
         exit
       else
@@ -40,9 +40,9 @@ class CLI
     end
   end
 
-  def list_beer_styles(family)
-    puts "\n#{family.first.family_name}".colorize(:light_magenta)
-    family.each.with_index(1) {|beer, i| puts "#{i}. #{beer.style_name}"}
+  def list_beer_styles(beers)
+    puts "\n#{beers.first.family_name}".colorize(:light_magenta)
+    beers.each.with_index(1) {|beer, i| puts "#{i}. #{beer.style_name}"}
   end
 
   def sub_menu(beers)
@@ -65,7 +65,7 @@ class CLI
         puts "#{beer.commercial_examples[2][:beer_name]} by #{beer.commercial_examples[2][:brewery]}"
         # this output is the beer style characteristics
       elsif input.downcase == "styles"
-        list_beer_styles
+        list_beer_styles(beers)
         puts "\nEnter the number of the beer style you'd like to learn more about."
       elsif input.downcase == "families"
         list_style_families
