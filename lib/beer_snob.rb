@@ -1,6 +1,7 @@
 # Acts as the environment
 # The executable file will require this file and this file requires all 
 # other dependencies
+
 require "nokogiri"
 require "open-uri"
 require "colorize"

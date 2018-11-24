@@ -2,6 +2,6 @@
 
 # Added require in order to pull code from other files
 require "bundler/setup"
-require "beer_snob"
+require "beer_snob"   # Executable file
 
 CLI.new.learn
