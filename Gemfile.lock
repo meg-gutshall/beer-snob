@@ -11,17 +11,17 @@ GEM
     marc (1.0.2)
       scrub_rb (>= 1.0.1, < 2)
       unf
-    method_source (0.9.0)
-    mini_portile2 (2.3.0)
-    nokogiri (1.8.5)
-      mini_portile2 (~> 2.3.0)
+    method_source (0.9.2)
+    mini_portile2 (2.4.0)
+    nokogiri (1.10.1)
+      mini_portile2 (~> 2.4.0)
     openurl (1.0.0)
       marc
       scrub_rb (~> 1.0)
-    pry (0.11.3)
+    pry (0.12.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
-    rake (10.5.0)
+    rake (12.3.2)
     scrub_rb (1.0.1)
     unf (0.1.4)
       unf_ext
@@ -32,12 +32,12 @@ PLATFORMS
 
 DEPENDENCIES
   beer_snob!
-  bundler (~> 1.16)
+  bundler (~> 2.0)
   colorize
   nokogiri
   openurl
   pry
-  rake (~> 10.0)
+  rake (~> 12.3)
 
 BUNDLED WITH
-   1.16.2
+   2.0.1
