@@ -8,21 +8,6 @@ App users can choose from a predefined list to learn about different beer styles
 
 I still want to add some features to this app so it is not yet a gem, but will be in the future! For now, clone down the repo by entering `git clone https://github.com/meg-gutshall/beer_snob.git` into your terminal.
 
-<!-- \\
-Add this line to your application's Gemfile:
-\\
-```ruby
-gem 'beer_snob'
-```
-\\
-And then execute:
-\\
-    $ bundle
-\\
-Or install it yourself as:
-\\
-    $ gem install beer_snob -->
-
 ## Usage
 
 To run BeerSnob, `cd` into the file where your clone is stored, then type `./bin/beer-snob` into the terminal to begin the app. It will prompt you to pick a family style and then a beer style from that family's list. Type `styles` to display the list of beer styles from the chosen family, type `families` to display the list of family styles, or type `exit` to quit the application.
