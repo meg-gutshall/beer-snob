@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 # Added require in order to pull code from other files
-require "bundler/setup"
-require "beer_snob"   # Executable file
+require "bundler/setup"   # Loads gems and dependencies from Gemfile
+require "beer_snob"       # Requires app files and gems
 
-CLI.new.learn
+CLI.new.learn             # Starts app
