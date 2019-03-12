@@ -27,7 +27,10 @@ Or install it yourself as:
 
 To run BeerSnob, `cd` into the file where your clone is stored, then type `./bin/beer-snob` into the terminal to begin the app. It will prompt you to pick a family style and then a beer style from that family's list. Type `styles` to display the list of beer styles from the chosen family, type `families` to display the list of family styles, or type `exit` to quit the application.
 
+## Demo Video
+
 [![Demo video](https://img.youtube.com/vi/m-sAVQi9MQo/0.jpg)](https://youtu.be/m-sAVQi9MQo)
+
 <!-- \\
 ## Development
 
