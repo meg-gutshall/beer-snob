@@ -6,7 +6,7 @@ App users can choose from a predefined list to learn about different beer styles
 
 ## Installation
 
-I still want to add some features to this app so it is not yet a gem, but will be in the future! For now, clone down the repo by entering `git clone https://github.com/meg-gutshall/beer_snob.git` into your terminal.
+I still want to add some features to this app so it is not yet a gem, but will be in the future! For now, clone down the repo by entering `git clone https://github.com/meg-gutshall/beer_snob.git` into your terminal. Be sure to run `bundle install` before trying to use the app!
 
 <!-- \\
 Add this line to your application's Gemfile:
