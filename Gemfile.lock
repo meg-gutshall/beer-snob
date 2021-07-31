@@ -42,4 +42,8 @@ DEPENDENCIES
   rake (~> 13.0)
 
 BUNDLED WITH
+<<<<<<< HEAD
    2.1.4
+=======
+   2.2.21
+>>>>>>> turnt
