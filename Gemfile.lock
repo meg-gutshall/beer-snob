@@ -13,9 +13,9 @@ GEM
       scrub_rb (>= 1.0.1, < 2)
       unf
     method_source (1.0.0)
-    nokogiri (1.13.6-x86_64-darwin)
+    nokogiri (1.14.3-x86_64-darwin)
       racc (~> 1.4)
-    nokogiri (1.13.6-x86_64-linux)
+    nokogiri (1.14.3-x86_64-linux)
       racc (~> 1.4)
     openurl (1.0.0)
       marc
@@ -23,7 +23,7 @@ GEM
     pry (0.14.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
-    racc (1.6.0)
+    racc (1.6.2)
     rake (13.0.6)
     rexml (3.2.5)
     scrub_rb (1.0.1)
